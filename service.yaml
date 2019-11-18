@@ -7,6 +7,6 @@ spec:
   selector:
     app: twittertrend
   ports:
-  - nodePort: 30000
+  - nodePort: 30082
     port: 8000
     targetPort: 8000
