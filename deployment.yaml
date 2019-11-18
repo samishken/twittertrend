@@ -14,28 +14,7 @@ spec:
     spec:
       containers:
       - name: twittertrend
-        image: stalin/twittertrend:1.3
+        image: stalin/twittertrend-nosecret:1.0
         ports:
         - containerPort: 8000
-        env:
-        - name: CONSUMER_KEY
-          valueFrom: 
-            secretKeyRef:
-              name: mysecret
-              key: CONSUMER_KEY
-        - name: CONSUMER_SECRET
-          valueFrom:
-            secretKeyRef:
-              name: mysecret
-              key: CONSUMER_SECRET
-        - name: ACCESS_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: mysecret
-              key: ACCESS_TOKEN
-        - name: ACCESS_TOKEN_SECRET
-          valueFrom:
-            secretKeyRef:
-              name: mysecret
-              key: ACCESS_TOKEN_SECRET
 
