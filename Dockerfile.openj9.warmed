@@ -1,0 +1,6 @@
+FROM adoptopenjdk/openjdk8-openj9
+ADD target/demo-workshop-1.0.0.jar demo-workshop-1.0.0.jar
+# Start and stop the JVM to pre-warm the class cache
+RUN /bin/bash -c 'java -Xscmx50M -Xshareclasses -Xquickstart -jar demo-workshop-1.0.0.jar &' ; sleep 20 ; ps aux | grep java | grep petclinic | awk '{print $2}' | xargs kill -1
+CMD ["java","-Xscmx50M","-Xshareclasses","-Xquickstart", "-jar","demo-workshop-1.0.0.jar"]
+

@@ -1,0 +1,4 @@
+FROM adoptopenjdk/openjdk8-openj9
+ADD target/demo-workshop-1.0.0.jar demo-workshop-1.0.0.jar
+CMD ["java","-jar","demo-workshop-1.0.0.jar"]
+
