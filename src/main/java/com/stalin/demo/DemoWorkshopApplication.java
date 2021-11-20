@@ -4,9 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoWorkshopApplication {
-// Test 1
-   
+public class DemoWorkshopApplication
 	
 	public static void main(String[] args) {
 		// Sample comment
