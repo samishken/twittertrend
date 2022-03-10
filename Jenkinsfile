@@ -11,6 +11,12 @@ pipeline {
                 sh 'mvn clean deploy -Dmaven.test.skip=true'
             }
         }
+        stage('Docker Build') {
+            steps {
+                echo 'Building Docker Image..'
+                app = docker.build("stalin.jfrog.io/twittertrend")
+            }
+        }
         stage('Test') {
             steps {
                 echo 'Testing..'
