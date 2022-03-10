@@ -1,3 +1,6 @@
+def imageName = 'stalin.lenin@gmail.com/twittertrend'
+def registry  = 'https://registry.slowcoder.com'
+def app
 pipeline {
     agent {
        node {
@@ -15,7 +18,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo 'Building Docker Image..'
-                app = docker.build("stalin.jfrog.io/twittertrend")
+                app = docker.build(imageName)
             }
         }
         stage('Test') {
