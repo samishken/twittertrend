@@ -1,5 +1,5 @@
 def imageName = 'stalin.jfrog.io/twittertrend'
-def registry  = 'https://stalin.jfrog.io'
+def registry  = 'https://stalin.jfrog.io/default-docker-local'
 def app
 pipeline {
     agent {
