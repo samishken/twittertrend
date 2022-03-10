@@ -36,6 +36,7 @@ public class RepositoryDetailsController {
 
 	@GetMapping("/trends")
 	public Map<String, String> getTwitterTrends(@RequestParam("placeid") String trendPlace, @RequestParam("count") String trendCount) {
+		System.out.println("Pipeline execution test");
 		String consumerKey = env.getProperty("CONSUMER_KEY");
 		String consumerSecret = env.getProperty("CONSUMER_SECRET");
 		String accessToken = env.getProperty("ACCESS_TOKEN");
