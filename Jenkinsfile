@@ -17,7 +17,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo 'Building Docker Image..'
-                app = docker.build(imageName)
+                docker.build(imageName)
             }
         }
         stage('Test') {
