@@ -1,4 +1,4 @@
-def imageName = stalin12/twittertrend'
+def imageName = 'stalin12/twittertrend'
 def registry  = 'https://registry.slowcoder.com'
 def app
 pipeline {
@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Cleanup Workspace') {
             steps {
-                //cleanWs()
+                cleanWs()
                 sh """
                 echo "Cleaned Up Workspace For Project"
                 """
