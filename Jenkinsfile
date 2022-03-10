@@ -1,4 +1,4 @@
-def imageName = 'stalin.lenin@gmail.com/twittertrend'
+def imageName = stalin12/twittertrend'
 def registry  = 'https://registry.slowcoder.com'
 def app
 pipeline {
