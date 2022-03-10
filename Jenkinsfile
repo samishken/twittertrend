@@ -1,5 +1,5 @@
-def imageName = 'stalin12/twittertrend'
-def registry  = 'https://registry.slowcoder.com'
+def imageName = 'stalin.jfrog.io/twittertrend'
+def registry  = 'https://stalin.jfrog.io'
 def app
 pipeline {
     agent {
@@ -19,6 +19,16 @@ pipeline {
               script{
                 echo 'Building Docker Image..'
                 app = docker.build(imageName)
+              }
+            }
+        }
+        stage('Docker Publish') {
+            steps {
+              script{
+                echo 'Publishing Docker Image..'
+                docker.withRegistry(registry, 'artifactorycredentialid') {
+                       docker.image(imageName).push(env.BUILD_ID)
+                }
               }
             }
         }
