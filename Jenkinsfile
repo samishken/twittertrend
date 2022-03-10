@@ -1,5 +1,5 @@
-def imageName = 'stalin.jfrog.io/twittertrend'
-def registry  = 'https://stalin.jfrog.io/default-docker-local'
+def imageName = 'stalin.jfrog.io/default-docker-local/twittertrend'
+def registry  = 'https://stalin.jfrog.io'
 def app
 pipeline {
     agent {
@@ -27,7 +27,8 @@ pipeline {
               script{
                 echo 'Publishing Docker Image..'
                 docker.withRegistry(registry, 'artifactorycredentialid') {
-                       docker.image(imageName).push(env.BUILD_ID)
+                   app.push("latest")
+                       //docker.image(imageName).push(env.BUILD_ID)
                 }
               }
             }
