@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'mvn clean install'
+                sh 'mvn clean deploy -Dmaven.test.skip=true'
             }
         }
         stage('Test') {
@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Cleanup Workspace') {
             steps {
-                cleanWs()
+                //cleanWs()
                 sh """
                 echo "Cleaned Up Workspace For Project"
                 """
