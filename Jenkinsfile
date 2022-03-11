@@ -21,7 +21,7 @@ pipeline {
              script {
                  echo '<--------------- Jar publishing Started --------------->'
                  def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"artifactorycredentialid"
-                 def properties = env.BUILD_ID;
+                 def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                  def uploadSpec = """{
                       "files": [
                         {
@@ -29,7 +29,7 @@ pipeline {
                           "target": "default-maven-local/{1}",
                           "flat": "false",
                           "props" : "${properties}",
-                          "excludePatterns": [ "*.sha1", "*.md5"]
+                          "exclusions": [ "*.sha1", "*.md5"]
                         }
                      ]
                  }"""
