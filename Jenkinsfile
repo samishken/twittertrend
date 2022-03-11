@@ -20,7 +20,7 @@ pipeline {
            steps {
              scripts {
                  echo '<--------------- Jar publishing Started --------------->'
-                 server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"artifactorycredentialid"
+                 def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"artifactorycredentialid"
                  def properties = env.BUILD_ID;
                  def uploadSpec = """{
                       "files": [
