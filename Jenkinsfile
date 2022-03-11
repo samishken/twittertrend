@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Jar Publish') {
            steps {
-             scripts {
+             script {
                  echo '<--------------- Jar publishing Started --------------->'
                  def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"artifactorycredentialid"
                  def properties = env.BUILD_ID;
