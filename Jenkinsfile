@@ -58,7 +58,7 @@ pipeline {
             steps {
               script{
                 echo '<---------------  Building Docker Image --------------->'
-                //app = docker.build(imageName)
+                app = docker.build(imageName)
                 echo '<---------------  Building Docker Image Finished --------------->'
               }
             }
@@ -69,7 +69,7 @@ pipeline {
                 echo '<---------------  Publishing Docker Image --------------->'
                 docker.withRegistry(registry, 'artifactorycredentialid') {
                    //app.push("latest")
-                   //docker.image(imageName).push(env.BUILD_ID)
+                docker.image(imageName).push(env.BUILD_ID)
                 echo '<---------------  Publishing Docker Image finished --------------->'
                 }
               }
